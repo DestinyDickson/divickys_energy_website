@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="page-hero">
+    <p class="eyebrow">Contact Us</p>
+    <h1>Let’s discuss your energy service needs.</h1>
+</section>
+
+<section class="section contact-grid">
+    <div class="contact-card">
+        <h2>Company Information</h2>
+        <p><strong>Address:</strong> {{ company.address }}</p>
+        <p><strong>Phone:</strong> {{ company.phones|join(" / ") }}</p>
+        <p><strong>Email:</strong> {{ company.email }}</p>
+        <p><strong>Website:</strong> {{ company.website }}</p>
+    </div>
+
+    <form class="contact-form" method="POST">
+        <h2>Send a Message</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <label>Name
+            <input type="text" name="name" placeholder="Your name">
+        </label>
+        <label>Email
+            <input type="email" name="email" placeholder="you@example.com">
+        </label>
+        <label>Message
+            <textarea name="message" rows="6" placeholder="How can we help?"></textarea>
+        </label>
+        <button class="btn primary" type="submit">Submit Message</button>
+    </form>
+</section>
+{% endblock %}

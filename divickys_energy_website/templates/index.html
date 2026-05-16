@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="hero hero-image">
+    <div class="hero-content left">
+        <p class="eyebrow">Indigenous Nigerian Oil & Gas Servicing Company</p>
+        <h1><span>Powering</span> Today While Fueling <span class="green-text">Tomorrow.</span></h1>
+        <p>
+            Delivering efficient, innovative, and sustainable energy solutions across
+            upstream, midstream, and downstream oil and gas sectors.
+        </p>
+        <div class="hero-actions">
+            <a class="btn primary" href="{{ url_for('services') }}">Explore Services</a>
+            <a class="btn secondary" href="{{ url_for('contact') }}">Contact Us</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="section who-we-are-section">
+    <div class="who-we-are-text">
+        <p class="eyebrow">Who We Are</p>
+        <h2>Reliable energy services built on excellence, safety, and environmental responsibility.</h2>
+        <p>
+            {{ company.name }} is headquartered in Port Harcourt, Rivers State, Nigeria.
+            Established in {{ company.established }} and registered with CAC No. {{ company.cac }},
+            the company supports clients across the oil and gas value chain.
+        </p>
+        <a class="btn secondary" href="{{ url_for('about') }}">Learn More</a>
+    </div>
+
+    <div class="photo-card wide-photo">
+        <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1200&q=80" alt="Engineer working in an industrial environment">
+        <div>
+            <h3>People. Safety. Performance.</h3>
+            <p>Skilled professionals supporting safe and reliable oil and gas operations.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section gallery-section">
+    <p class="eyebrow">Field Operations</p>
+    <h2>Our people-focused approach to energy services</h2>
+
+    <div class="gallery-grid">
+        <article class="gallery-card" data-category="field" onclick="openImageModal(this.querySelector('img').src, 'Field Engineering Support')">
+            <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?auto=format&fit=crop&w=900&q=80" alt="Workers at an industrial site">
+            <div>
+                <h3>Field Engineering Support</h3>
+                <p>Hands-on technical teams for industrial and energy environments.</p>
+            </div>
+        </article>
+
+        <article class="gallery-card" data-category="inspection" onclick="openImageModal(this.querySelector('img').src, 'Inspection and Quality Assurance')">
+            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80" alt="Engineer inspecting equipment">
+            <div>
+                <h3>Inspection & Quality Assurance</h3>
+                <p>Careful checks that support safer and higher quality delivery.</p>
+            </div>
+        </article>
+
+        <article class="gallery-card" data-category="logistics" onclick="openImageModal(this.querySelector('img').src, 'Logistics and Operations')">
+            <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=900&q=80" alt="Industrial team and equipment">
+            <div>
+                <h3>Logistics & Operations</h3>
+                <p>Coordinated support across petroleum service operations.</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="section dark">
+    <p class="eyebrow">Core Services</p>
+    <h2>Integrated oil and gas support services</h2>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all" onclick="filterServices('all')">All</button>
+        <button class="filter-btn" data-filter="field" onclick="filterServices('field')">Field</button>
+        <button class="filter-btn" data-filter="inspection" onclick="filterServices('inspection')">Inspection</button>
+        <button class="filter-btn" data-filter="logistics" onclick="filterServices('logistics')">Logistics</button>
+    </div>
+
+    <div class="cards">
+        <article class="card service-item" data-category="field">
+            <h3>Drilling Support Services</h3>
+            <p>Reliable field support for upstream operations.</p>
+        </article>
+        <article class="card service-item" data-category="inspection">
+            <h3>Pipeline Maintenance & Inspection</h3>
+            <p>Inspection-focused support for safer pipeline systems.</p>
+        </article>
+        <article class="card service-item" data-category="logistics">
+            <h3>Petroleum Product Supply</h3>
+            <p>Distribution and supply support for petroleum products.</p>
+        </article>
+        <article class="card service-item" data-category="field">
+            <h3>Fabrication & Welding</h3>
+            <p>Mechanical fabrication services for industrial projects.</p>
+        </article>
+        <article class="card service-item" data-category="inspection">
+            <h3>Quality Assurance</h3>
+            <p>Industrial inspection and quality-focused delivery.</p>
+        </article>
+        <article class="card service-item" data-category="logistics">
+            <h3>Marine & Logistics Support</h3>
+            <p>Operational support for movement, supply, and service delivery.</p>
+        </article>
+    </div>
+    <a class="btn white-btn" href="{{ url_for('services') }}">View All Services</a>
+</section>
+
+<section class="section">
+    <p class="eyebrow">Why Choose Us</p>
+    <h2>A dependable partner across the energy value chain</h2>
+    <div class="check-list">
+        {% for reason in why_choose_us %}
+        <div>✓ {{ reason }}</div>
+        {% endfor %}
+    </div>
+</section>
+
+<div class="modal" id="imageModal">
+    <button class="modal-close" onclick="closeImageModal()">×</button>
+    <div class="modal-content">
+        <img id="modalImage" src="" alt="Expanded company operations image">
+        <h3 id="modalTitle"></h3>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="page-hero">
+    <p class="eyebrow">Our Services</p>
+    <h1>Specialized Energy Solutions</h1>
+    <p>
+        We provide reliable solutions across upstream, midstream, and downstream
+        petroleum operations.
+    </p>
+</section>
+
+<section class="section">
+    <div class="filter-bar light-filter">
+        <button class="filter-btn active" data-filter="all" onclick="filterServices('all')">All</button>
+        <button class="filter-btn" data-filter="field" onclick="filterServices('field')">Field Services</button>
+        <button class="filter-btn" data-filter="inspection" onclick="filterServices('inspection')">Inspection</button>
+        <button class="filter-btn" data-filter="logistics" onclick="filterServices('logistics')">Supply & Logistics</button>
+    </div>
+
+    <div class="service-list">
+        {% for service in services %}
+        <article class="service-item" data-category="{% if loop.index in [1,5,6,10,11] %}field{% elif loop.index in [2,7,13] %}inspection{% else %}logistics{% endif %}">
+            <div class="service-number">{{ "%02d"|format(loop.index) }}</div>
+            <div>
+                <h3>{{ service }}</h3>
+                <p>
+                    Delivered by a skilled team with a strong focus on quality, safety,
+                    timely execution, and client satisfaction.
+                </p>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
