@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - DIVICKYS ENERGY RESOURCES LIMITED</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <a href="{{ url_for('home') }}" class="brand">
+                <img src="static/logo.jpeg" alt="DIVICKYS ENERGY RESOURCES LIMITED logo" class="logo">
+            </a>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <div class="nav-links" id="navLinks">
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('services') }}">Services</a>
+                <a href="{{ url_for('contact') }}">Contact</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+<section class="page-hero">
+    <p class="eyebrow">Contact Us</p>
+    <h1>Let’s discuss your energy service needs.</h1>
+</section>
+<section class="section contact-grid">
+    <div class="section-logo-print top-logo"><img src="static/logo.jpeg" alt="Divickys Energy Resources logo"></div>
+    <div class="contact-card">
+        <h2>Company Information</h2>
+        <p><strong>Address:</strong> #1 Evangel Close, off Elijiji Road, Woji, Port Harcourt, Rivers State, Nigeria</p>
+        <p><strong>Phone:</strong> +234-8035727090 | +234-7067605183</p>
+        <p><strong>Email:</strong> divickyserl@gmail.com</p>
+        <p><strong>Website:</strong> www.divckysenergyresources.com</p>
+    </div>
+    <form class="contact-form" action="mailto:divickyserl@gmail.com" method="POST" enctype="text/plain">
+        <h2>Send a Message</h2>
+        <label>Name<input type="text" name="name" placeholder="Your name"></label>
+        <label>Email<input type="email" name="email" placeholder="you@example.com"></label>
+        <label>Message<textarea name="message" rows="6" placeholder="How can we help?"></textarea></label>
+        <button class="btn primary" type="submit">Submit Message</button>
+    </form>
+</section>
+</main>
+    <footer class="footer">
+        <div class="footer-brand">
+            <img src="static/logo.jpeg" alt="DIVICKYS ENERGY RESOURCES LIMITED logo" class="footer-logo">
+            <p>Powering Today While Fueling Tomorrow</p>
+        </div>
+        <div>
+            <p>#1 Evangel Close, off Elijiji Road, Woji, Port Harcourt, Rivers State, Nigeria</p>
+            <p>+234-8035727090 | +234-7067605183</p>
+            <p>divickyserl@gmail.com</p>
+        </div>
+    </footer>
+    <script src="static/script.js"></script>
+</body>
+</html>
